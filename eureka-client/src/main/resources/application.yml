@@ -1,0 +1,22 @@
+
+server:
+  port: 0   # порт будет присвоен автоматически при публикации клиента
+
+#  id приложения
+spring:
+  application:
+    name: EurekaClient
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8081/eureka  # URL куда будет происходить регистрация микросервисов
+
+logging:
+  pattern:
+    console: '%C{1.} [%-5level] %d{HH:mm:ss} - %msg%n'    # Формат вывода логов (сокращённый отн. формата по умолчанию)
+
+
+
+
+
