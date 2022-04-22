@@ -1,0 +1,28 @@
+
+server:
+  port: 8081
+
+#  id приложения (сервера Eureka)
+spring:
+  application:
+    name: EurekaServer
+
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://localhost:8081/eureka  # URL куда будет происходить регистрация микросервисов
+
+# Отключение лишних логов
+logging:
+  level:
+    com.netflix.eureka: OFF
+    com.netflix.discovery: OFF
+  pattern:
+    console: '%C{1.} [%-5level] %d{HH:mm:ss} - %msg%n'    # Формат вывода логов (сокращённый отн. формата по умолчанию)
+
+
+
+
