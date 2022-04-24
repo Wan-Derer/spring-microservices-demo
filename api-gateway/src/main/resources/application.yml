@@ -1,0 +1,37 @@
+
+server:
+  port: 8082
+
+
+spring:
+  application:
+    name: ApiGateway      #  id приложения
+  cloud:
+    gateway:
+      discovery:
+        locator:          # для работы API-gateway
+          enabled: true
+          lower-case-service-id: true
+      routes:             # можно вручную перенаправлять запрос на нужный микросервис
+        -
+          id: test
+          uri: lb://eurekaclient
+          predicates:
+            - Path=/main/test
+            - Method=GET
+
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8081/eureka  # URL куда будет происходить регистрация микросервисов
+
+# Отключение лишних логов
+logging:
+  pattern:
+    console: '%C{1.} [%-5level] %d{HH:mm:ss} - %msg%n'    # Формат вывода логов (сокращённый отн. формата по умолчанию)
+
+
+
+
