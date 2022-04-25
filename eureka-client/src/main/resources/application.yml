@@ -10,7 +10,7 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8081/eureka  # URL куда будет происходить регистрация микросервисов
+      defaultZone: http://localhost:8761/eureka  # URL куда будет происходить регистрация микросервисов
   instance:
     instance-id: ${spring.application.name}:${random.uuid}   # каждый экземпляр будет иметь уникальный ID
 
